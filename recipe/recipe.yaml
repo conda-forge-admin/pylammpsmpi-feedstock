@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pylammpsmpi
-  version: "0.3.12"
+  version: "0.3.13"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pylammpsmpi-${{ version }}.tar.gz
-  sha256: a64a46336c3b8e6de21b13e414897c60533d7c66bf8a06294902ac8779ebe6dd
+  sha256: 3238c62c75edc601f06fa98cf81ce3f2aa24983d5f6a601e829bcce35d505a18
 
 build:
   number: 0
@@ -28,9 +28,9 @@ requirements:
     - hatch-vcs
   run:
     - python >=${{ python_min }}
-    - mpi4py >=3.1.4,<=4.1.1
-    - executorlib >=1.9.0,<=1.9.2
-    - numpy >=1.23.5,<=2.4.3
+    - mpi4py >=3.1.4,<=4.1.2
+    - executorlib >=1.9.0,<=1.9.3
+    - numpy >=1.23.5,<=2.4.6
 tests:
   - python:
       imports:
