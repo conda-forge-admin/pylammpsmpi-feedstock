@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pylammpsmpi
-  version: "0.4.1"
+  version: "0.5.0"
   python_min: "3.11"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pylammpsmpi-${{ version }}.tar.gz
-  sha256: 3ecf26790df63ea65609392159e1c51892e358484b5c214ad70c46be07eea712
+  sha256: 0f02360719fc8610d6b3e808834eeee6549492c2194a222aa67f160e642b996d
 
 build:
   number: 0
@@ -30,8 +30,8 @@ requirements:
   run:
     - python >=${{ python_min }}
     - mpi4py >=4.1.2,<=4.1.2
-    - executorlib >=1.9.0,<=1.9.4
-    - numpy >=2.4.6,<=2.4.6
+    - executorlib >=1.9.0,<=1.10.1
+    - numpy >=2.4.6,<=2.5.1
 tests:
   - python:
       imports:
@@ -54,5 +54,4 @@ extra:
   recipe-maintainers:
     - pyiron-runner
     - jan-janssen
-    - pmrv
     - srmnitc
