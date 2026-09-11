@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pylammpsmpi
-  version: "0.5.0"
+  version: "0.5.1"
   python_min: "3.11"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pylammpsmpi-${{ version }}.tar.gz
-  sha256: 0f02360719fc8610d6b3e808834eeee6549492c2194a222aa67f160e642b996d
+  sha256: 7eb6bf31a69d42ea06931b907b40b84438b1d259b228c696ff4b87376bdb0674
 
 build:
   number: 0
@@ -30,19 +30,16 @@ requirements:
   run:
     - python >=${{ python_min }}
     - mpi4py >=4.1.2,<=4.1.2
-    - executorlib >=1.9.0,<=1.10.1
-    - numpy >=2.4.6,<=2.5.1
+    - executorlib >=1.9.0,<=1.10.3
+    - numpy >=2.4.6,<=2.5.3
 tests:
   - python:
       imports:
         - pylammpsmpi
-      python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
   summary: Parallel Lammps Python interface
